@@ -1,63 +1,69 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  background: linear-gradient(135deg, #282c34 0%, #1e222a 100%);
+  background: linear-gradient(135deg, #2b2f3a 0%, #1e2028 100%);
   font-family: 'Segoe UI', sans-serif;
   color: #ececec;
   min-height: 100vh;
+  padding: 50px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 32px 10px 0 10px;
 }
 
 .add-form-container {
   width: 100%;
-  max-width: 480px;
+  max-width: 600px;
   margin-bottom: 32px;
 }
 
 #add-form {
   display: flex;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 #add-form input {
   flex: 1;
-  padding: 10px 12px;
-  border-radius: 6px;
+  padding: 12px;
+  border-radius: 8px;
   border: none;
-  outline: none;
+  background-color: #181c22;
+  color: white;
   font-size: 1em;
-  background: #181c22;
-  color: #ececec;
 }
 
 #add-form button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 6px;
-  background: #16a085;
+  padding: 12px;
+  background-color: #16a085;
   color: white;
-  font-size: 1.05em;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
   cursor: pointer;
-  transition: background 0.18s;
+  transition: background 0.2s;
 }
+
 #add-form button:hover {
-  background: #13846c;
+  background-color: #138d75;
 }
 
 .container {
-  max-width: 1000px;
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
   justify-content: center;
+  gap: 20px;
+  max-width: 1000px;
 }
 
 .card {
   background: #21252b;
-  border-radius: 24px;
-  padding: 32px 24px 24px 24px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
   width: 160px;
   height: 160px;
   display: flex;
@@ -65,63 +71,62 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
-  transition: transform 0.2s, box-shadow 0.2s;
+  padding: 20px;
+  transition: 0.2s ease;
   cursor: grab;
 }
-.card:active { cursor: grabbing; }
-.card:hover { box-shadow: 0 12px 30px rgba(0,0,0,0.4); }
 
-.icon-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.card:active {
+  cursor: grabbing;
 }
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.5);
+}
+
 .icon {
   width: 64px;
   height: 64px;
-  margin-bottom: 10px;
-  border-radius: 16px;
-  background: #222;
   object-fit: contain;
-  transition: transform 0.1s;
-  user-select: none;
+  margin-bottom: 10px;
 }
 
 .card-title {
-  font-size: 1.1em;
+  font-size: 1em;
   text-align: center;
   font-weight: 500;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 100%;
-  white-space: nowrap;
+  color: #ccc;
 }
 
 .card-delete {
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background-color: #e74c3c;
-  color: white;
+  background: #e74c3c;
   border: none;
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 28px;
-  text-align: center;
+  color: white;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.2s;
-  z-index: 2;
+  line-height: 26px;
+  text-align: center;
 }
-.card-delete:hover { background-color: #c0392b; }
 
-.ghost { opacity: 0.4; transform: scale(0.95); }
-.dragging { background-color: #2a2f3a !important; }
+.card-delete:hover {
+  background: #c0392b;
+}
+
+.ghost {
+  opacity: 0.4;
+  transform: scale(0.95);
+}
 
 @media (max-width: 600px) {
-  .card { width: 95%; height: 120px; }
-  .icon { width: 48px; height: 48px; }
+  .card {
+    width: 90%;
+    height: auto;
+  }
 }
-
