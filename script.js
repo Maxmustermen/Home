@@ -41,3 +41,28 @@ function deleteWebsite(i) {
   loadWebsites();
 }
 window.addEventListener("DOMContentLoaded", loadWebsites);
+
+
+// Sortable JS
+document.addEventListener('DOMContentLoaded', function () {
+    const container = document.querySelector('.container'); // oder z. B. '#container'
+
+    if (container) {
+        new Sortable(container, {
+            animation: 180,
+            ghostClass: 'ghost',
+            dragClass: 'dragging'
+        });
+    } else {
+        console.error('SortableJS: .container wurde nicht gefunden.');
+    }
+
+    // Optional: Entfernen-Funktion für Delete-X Buttons
+    const deleteButtons = document.querySelectorAll('.card-delete');
+
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            this.parentElement.remove();
+        });
+    });
+});
