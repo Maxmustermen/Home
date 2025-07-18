@@ -67,12 +67,6 @@ body {
     background: #ff2323;
 }
 
-.ghost {
-    opacity: 0.4;
-}
-.dragging {
-    background: #32363d!important;
-}
 
 @media (max-width: 700px) {
     .container {
@@ -91,4 +85,11 @@ body {
         font-size: 54px;
         margin-bottom: 12px;
     }
+    .ghost {
+    opacity: 0.4;
+    transform: scale(0.95);
+}
+.dragging {
+    background-color: #2a2f3a !important;
+}
 }
