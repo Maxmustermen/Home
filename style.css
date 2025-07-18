@@ -1,17 +1,48 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 body {
   background: linear-gradient(135deg, #282c34 0%, #1e222a 100%);
   font-family: 'Segoe UI', sans-serif;
   color: #ececec;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
-  padding: 50px 20px;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 10px 0 10px;
+}
+
+.add-form-container {
+  width: 100%;
+  max-width: 480px;
+  margin-bottom: 32px;
+}
+
+#add-form {
+  display: flex;
+  gap: 8px;
+}
+
+#add-form input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  background: #181c22;
+  color: #ececec;
+}
+
+#add-form button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background: #16a085;
+  color: white;
+  font-size: 1.05em;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+#add-form button:hover {
+  background: #13846c;
 }
 
 .container {
@@ -37,18 +68,22 @@ body {
   transition: transform 0.2s, box-shadow 0.2s;
   cursor: grab;
 }
+.card:active { cursor: grabbing; }
+.card:hover { box-shadow: 0 12px 30px rgba(0,0,0,0.4); }
 
-.card:active {
-  cursor: grabbing;
+.icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-.card:hover {
-  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
-}
-
 .icon {
-  font-size: 64px;
+  width: 64px;
+  height: 64px;
   margin-bottom: 10px;
+  border-radius: 16px;
+  background: #222;
+  object-fit: contain;
+  transition: transform 0.1s;
   user-select: none;
 }
 
@@ -56,6 +91,10 @@ body {
   font-size: 1.1em;
   text-align: center;
   font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  white-space: nowrap;
 }
 
 .card-delete {
@@ -76,27 +115,13 @@ body {
   transition: background-color 0.2s;
   z-index: 2;
 }
+.card-delete:hover { background-color: #c0392b; }
 
-.card-delete:hover {
-  background-color: #c0392b;
-}
-
-.ghost {
-  opacity: 0.4;
-  transform: scale(0.95);
-}
-
-.dragging {
-  background-color: #2a2f3a !important;
-}
+.ghost { opacity: 0.4; transform: scale(0.95); }
+.dragging { background-color: #2a2f3a !important; }
 
 @media (max-width: 600px) {
-  .card {
-    width: 95%;
-    height: 120px;
-  }
-
-  .icon {
-    font-size: 48px;
-  }
+  .card { width: 95%; height: 120px; }
+  .icon { width: 48px; height: 48px; }
 }
+
