@@ -1,130 +1,128 @@
-/* Hintergrund und Basis */
+/* 🌌 Hintergrund & Basistypografie */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #121212, #2c2c2c);
-  color: #eee;
-  padding: 30px;
+  background: linear-gradient(135deg, #1a1a1a, #333333);
+  color: #f0f0f5;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Überschrift */
-h1 {
+/* Kopfbereich */
+header {
+  padding: 40px 20px 20px;
   text-align: center;
+}
+h1 {
+  margin: 0 0 20px;
   font-weight: 300;
-  margin-bottom: 30px;
+  font-size: 2em;
   color: #ffffff;
 }
 
 /* Formular */
 #add-website-form {
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 10px;
-  margin-bottom: 30px;
+  justify-content: center;
 }
-
 input, button {
-  padding: 10px 12px;
-  font-size: 16px;
+  font-size: 1rem;
+  padding: 10px 14px;
   border-radius: 8px;
   border: none;
   outline: none;
 }
-
-input {
-  width: 240px;
-}
-
+input { width: 240px; }
 button {
-  background: #00c6ff;
-  color: white;
+  background: #40c0ff;
+  color: #222;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s ease;
 }
-
 button:hover {
-  background: #009ecc;
+  background: #00aaff;
 }
 
-/* Grid */
+/* Layout der Kacheln */
+main {
+  flex: 1;
+  padding: 20px;
+}
 #tiles-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  justify-items: center;
 }
 
-/* Kachel */
+/* Kacheln mit Glassmorphism */
 .tile {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255,255,255,0.05);
   border-radius: 16px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-  padding: 20px;
+  padding: 24px;
   position: relative;
-  transition: transform 0.2s;
+  width: 100%;
+  max-width: 240px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   text-align: center;
 }
-
 .tile:hover {
-  transform: scale(1.03);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.7);
 }
 
+/* Link & Icon innerhalb Kachel */
 .tile a {
+  color: #f0f0f5;
   text-decoration: none;
-  color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
-/* Icon */
 .icon {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 10px;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 12px;
 }
-
 .icon img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  border-radius: 8px;
+  border-radius: 12px;
 }
-
-/* Titel */
 .title {
-  font-size: 16px;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
   word-break: break-word;
-  margin-top: 5px;
 }
 
-/* Löschen */
+/* Löschen Symbol */
 .delete-btn {
   position: absolute;
-  top: 8px;
-  right: 10px;
-  background: transparent;
+  top: 10px;
+  right: 12px;
+  background: rgba(255,255,255,0.1);
   border: none;
-  font-size: 16px;
-  color: #ccc;
+  font-size: 1.2rem;
+  color: #ddd;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
   cursor: pointer;
-  transition: color 0.2s;
+  transition: color 0.2s ease, background 0.2s ease;
 }
-
 .delete-btn:hover {
-  color: #ff4d4d;
+  color: #ff6b6b;
+  background: rgba(255, 255, 255, 0.2);
 }
 
-/* Mobile Input */
+/* Mobile Anpassungen */
 @media (max-width: 500px) {
-  input {
-    width: 100%;
-  }
-
-  #add-website-form {
-    flex-direction: column;
-    align-items: center;
-  }
+  input { width: 100%; }
+  #add-website-form { flex-direction: column; align-items: center; }
 }
