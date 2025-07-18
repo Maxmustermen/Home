@@ -1,0 +1,87 @@
+body {
+  font-family: sans-serif;
+  padding: 20px;
+  background: #f4f4f4;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+#add-website-form {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+input {
+  padding: 8px;
+  flex: 1 1 200px;
+}
+
+button {
+  padding: 8px 12px;
+  flex-shrink: 0;
+}
+
+#tiles-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.tile {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  padding: 10px;
+  position: relative;
+  transition: transform 0.2s;
+}
+
+.tile:hover {
+  transform: scale(1.02);
+}
+
+.tile a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 10px;
+}
+
+.icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.title {
+  font-size: 16px;
+  text-align: center;
+  word-break: break-word;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  color: red;
+}
