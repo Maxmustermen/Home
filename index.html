@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Startseite Modern</title>
-  <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home1</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- SortableJS -->
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <header>
-    <h1>Meine moderne Startseite Test 4</h1>
-    <div id="add-website-form">
-      <input type="text" id="site-title" placeholder="Seitentitel"/>
-      <input type="url" id="site-url" placeholder="https://..."/>
-      <button onclick="addWebsite()">➕ Hinzufügen</button>
+  <div class="container">
+    <div class="card">
+      <button class="card-delete">×</button>
+      <div class="icon">🏠</div>
+      <div class="card-title">Zuhause</div>
     </div>
-  </header>
-  <main>
-    <div id="tiles-container"></div>
-  </main>
- <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
-<script src="script.js"></script>
-
+    <div class="card">
+      <button class="card-delete">×</button>
+      <div class="icon">🌐</div>
+      <div class="card-title">Browser</div>
+    </div>
+    <div class="card">
+      <button class="card-delete">×</button>
+      <div class="icon">💼</div>
+      <div class="card-title">Arbeit</div>
+    </div>
+  </div>
 </body>
 </html>
