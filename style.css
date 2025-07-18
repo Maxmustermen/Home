@@ -67,6 +67,13 @@ body {
     background: #ff2323;
 }
 
+.ghost {
+    opacity: 0.4;
+}
+.dragging {
+    background: #32363d!important;
+}
+
 @media (max-width: 700px) {
     .container {
         flex-direction: column;
