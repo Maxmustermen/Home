@@ -4,53 +4,53 @@ document.addEventListener('DOMContentLoaded', function () {
   const titleInput = document.getElementById('title-input');
   const urlInput = document.getElementById('url-input');
 
-  // Drag & Drop mit SortableJS
+  // SortableJS aktivieren
   new Sortable(container, {
     animation: 200,
     ghostClass: 'ghost',
-    dragClass: 'dragging'
   });
 
-  // Löschen-Button Event Delegation
-  container.addEventListener('click', function (e) {
-    if (e.target.classList.contains('card-delete')) {
-      const card = e.target.closest('.card');
-      if (card) card.remove();
-    }
-  });
-
-  // Karte hinzufügen (mit Favicon)
+  // Hinzufügen neuer Karten
   addForm.addEventListener('submit', function (e) {
     e.preventDefault();
     const title = titleInput.value.trim();
     const url = urlInput.value.trim();
+
     if (!title || !url) return;
 
-    // Domain extrahieren für das Favicon (Google Service: www.google.com/s2/favicons)
-    let domain;
-    try {
-      domain = (new URL(url)).hostname.replace(/^www\./, '');
-    } catch {
-      alert('Ungültige URL!');
-      return;
-    }
-    const faviconUrl = `https://www.google.com/s2/favicons?sz=64&domain=${domain}`;
+    const domain = extractDomain(url);
+    const favicon = `https://www.google.com/s2/favicons?sz=64&domain=${domain}`;
 
-    // Karte erzeugen
-    const div = document.createElement('div');
-    div.className = 'card';
-    div.setAttribute('data-url', url);
-    div.innerHTML = `
-      <button class="card-delete" title="Entfernen">×</button>
-      <a href="${url}" target="_blank" class="icon-link">
-        <img class="icon" src="${faviconUrl}" alt="Favicon">
+    const card = document.createElement('div');
+    card.classList.add('card');
+    card.innerHTML = `
+      <button class="card-delete">×</button>
+      <a href="${url}" target="_blank">
+        <img src="${favicon}" alt="Favicon" class="icon" />
       </a>
       <div class="card-title">${title}</div>
     `;
-    container.appendChild(div);
+    container.appendChild(card);
 
-    // Felder zurücksetzen
-    titleInput.value = '';
-    urlInput.value = '';
+    titleInput.value = "";
+    urlInput.value = "";
   });
+
+  // Karten entfernen
+  container.addEventListener('click', function (e) {
+    if (e.target.classList.contains('card-delete')) {
+      const card = e.target.closest('.card');
+      card.remove();
+    }
+  });
+
+  // Domain aus URL extrahieren
+  function extractDomain(url) {
+    try {
+      return new URL(url).hostname;
+    } catch (e) {
+      alert("Ungültige URL!");
+      return '';
+    }
+  }
 });
